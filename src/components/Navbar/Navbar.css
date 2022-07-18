@@ -1,0 +1,127 @@
+.nav-outer-container{
+    background: var(--color-dark);
+}
+
+.app__navbar{
+    background: var(--color-dark);
+    color: var(--color-light);
+    padding:0 3rem;
+    max-width: 1500px;
+    margin: 0 auto;
+
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.app__navbar-logo{
+    font-family: var(--font-aguafina);
+    font-size: 2rem;
+    padding-top: .5rem;
+}
+
+.app__navbar-search_container{
+    flex: 2;
+    margin:0rem 2rem;
+    position: relative;
+}
+
+.app__navbar-search_input{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 2px solid var(--color-dark);
+    border-radius: 2rem;
+    outline: none;
+}
+
+.app__navbar-search_icon{
+    position: absolute;
+    right: .5rem;
+    color: var(--color-dark);
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.app__navbar-links{
+    flex: 1;
+    gap: 1rem;
+}
+
+.app__navbar-link a{
+    font-size: 1rem;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition:all .4s ease-in-out;
+}
+
+.app__navbar-link a:hover{
+    border-color: var(--color-light);
+}
+.navbar-icon{
+    font-size: 1.25rem;
+}
+
+.hamburger-icon{
+    display: none;
+}
+
+.app__verticalMenu-container{
+    width: 100%;
+    height: 100vh;
+    background:rgba(0,0,0,0.9);
+    color: var(--color-light);
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    display: none;
+    z-index:100;
+}
+.close-icon{
+    position: absolute;
+    right: 1.5rem;
+    top: 1rem;
+}
+
+.app__verticalMenu-links{
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.app__verticalMenu-links a{
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+
+
+@media  screen and (max-width:800px) {
+    .app__navbar-links{
+        display: none;
+    }
+
+    .hamburger-icon{
+        display: flex;
+    }
+    .app__navbar-search_container{
+        flex: 1;
+    }
+    .app__navbar{
+        padding: 0 1rem;
+    }
+    .app__verticalMenu-container{
+        display: flex;
+    }
+}
+
+@media  screen and (max-width:500px)
+{
+    .app__navbar-search_container{
+        display: none;
+    }
+    .app__navbar{
+        justify-content: space-between;
+        gap: 3rem;
+        padding: 0 1rem;
+    }
+}
