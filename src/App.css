@@ -1,3 +1,51 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Montserrat:wght@300;400;600;700;900&family=Poppins:wght@100;300;400;600;700&display=swap');
+
+
+:root{
+  --color-light:#ffffff; 
+  --color-dark: #161515;
+  --font-aguafina: 'Aguafina Script', cursive;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+}
+
+body{
+  font-family: var(--font-montserrat);
+}
+
+.flex-center{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.app__container{
+  width: 100%;
+}
+
+.slide-bottom {
+  -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(-25%);
+            transform: translateY(-25%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(-25%);
+            transform: translateY(-25%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
