@@ -22,3 +22,7 @@ button, a{
     cursor: pointer;
 }
 
+img{
+    width: 100%;
+    height: auto;
+}

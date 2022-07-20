@@ -6,8 +6,6 @@
     background: var(--color-dark);
     color: var(--color-light);
     padding:0 3rem;
-    max-width: 1500px;
-    margin: 0 auto;
 
     justify-content: space-between;
     gap: 1rem;
