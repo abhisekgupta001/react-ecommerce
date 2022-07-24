@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <>
       <div className="app__container nav-outer-container">
-        <nav className="app__navbar flex-center">
+        <nav className="app__navbar fixed-container flex-center">
           <a href="#" className="app__navbar-logo">
             Pehnawa
           </a>
