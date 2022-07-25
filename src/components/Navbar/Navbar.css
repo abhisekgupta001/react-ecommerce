@@ -26,7 +26,7 @@
 .app__navbar-search_input{
     width: 100%;
     padding: 0.5rem 1rem;
-    font-size: 1rem;
+    font-size: .8rem;
     border: 2px solid var(--color-dark);
     border-radius: 2rem;
     outline: none;
@@ -46,7 +46,7 @@
 }
 
 .app__navbar-link a{
-    font-size: 1rem;
+    font-size: .8rem;
     border-bottom: 1px solid transparent;
     padding-bottom: 2px;
     transition:all .4s ease-in-out;

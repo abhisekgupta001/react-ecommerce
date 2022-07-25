@@ -1,6 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import { BiArrowToTop } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -13,13 +14,28 @@ const Footer = () => {
           <p className="footer-heading">Get In Touch</p>
           <ul>
             <li>
-              <a href="#">Facebook</a>
+              <a
+                href="https://www.facebook.com/"
+                rel="noopener"
+                target="_blank">
+                Facebook
+              </a>
             </li>
             <li>
-              <a href="#">Twitter</a>
+              <a
+                href="https://twitter.com/dev_abhi_js"
+                rel="noopener"
+                target="_blank">
+                Twitter
+              </a>
             </li>
             <li>
-              <a href="#">Instagram</a>
+              <a
+                href="https://www.instagram.com/its.abhi.shake/"
+                rel="noopener"
+                target="_blank">
+                Instagram
+              </a>
             </li>
           </ul>
         </div>
@@ -27,19 +43,19 @@ const Footer = () => {
           <p className="footer-heading">Categories</p>
           <ul>
             <li>
-              <a href="#">Shirts</a>
+              <Link to="/products">Shirts</Link>
             </li>
             <li>
-              <a href="#">T-Shirts</a>
+              <Link to="/products">T-Shirts</Link>
             </li>
             <li>
-              <a href="#">Jeans</a>
+              <Link to="/products">Jeans</Link>
             </li>
             <li>
-              <a href="#">Wallets</a>
+              <Link to="/products">Wallets</Link>
             </li>
             <li>
-              <a href="#">Shoes</a>
+              <Link to="/products">Shoes</Link>
             </li>
           </ul>
         </div>

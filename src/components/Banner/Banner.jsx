@@ -1,6 +1,7 @@
 import React from "react";
 import images from "../../constants/images";
 import "./Banner.css";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -12,7 +13,9 @@ const Banner = () => {
           </p>
           <h1 className="app__banner-heading">Winter Sale</h1>
           <h2 className="app__banner-heading_2">50% OFF</h2>
-          <button className="app__banner-cta">SHOP NOW</button>
+          <Link to="/products">
+            <button className="app__banner-cta">SHOP NOW</button>
+          </Link>
         </div>
         <div className="app__banner-right flex-center">
           <img
