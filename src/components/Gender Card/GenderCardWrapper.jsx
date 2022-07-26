@@ -1,6 +1,7 @@
 import React from "react";
 import images from "../../constants/images";
 import "./GenderCardWrapper.css";
+import { Link } from "react-router-dom";
 
 const GenderCard = ({ img, title }) => {
   return (
@@ -19,9 +20,15 @@ const GenderCardWrapper = () => {
   return (
     <div className="app__container">
       <div className="genderCard-outer-container fixed-container flex-center">
-        <GenderCard img={images.womenImg} title={"Women Section"} />
-        <GenderCard img={images.newImg} title={"New Arrival"} />
-        <GenderCard img={images.menImg} title={"Men Section"} />
+        <Link to="/products">
+          <GenderCard img={images.womenImg} title={"Women Section"} />
+        </Link>
+        <Link to="/products">
+          <GenderCard img={images.newImg} title={"New Arrival"} />
+        </Link>
+        <Link to="/products">
+          <GenderCard img={images.menImg} title={"Men Section"} />
+        </Link>
       </div>
     </div>
   );

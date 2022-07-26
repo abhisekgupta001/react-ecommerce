@@ -1,20 +1,31 @@
 import React, { useState } from "react";
+import { NavLink, Link } from "react-router-dom";
 import { BiSearchAlt2, BiGridAlt, BiXCircle } from "react-icons/bi";
 
 import "./Navbar.css";
+import { useAuth } from "../../Context/AuthContext";
 
 const Navbar = () => {
   const [verticalMenu, setVerticalMenu] = useState(false);
   const handleHamburger = () => {
     setVerticalMenu((prev) => !prev);
   };
+
+  const activeNav = ({ isActive }) => {
+    return {
+      borderBottom: isActive ? "1px solid var(--color-light)" : "",
+    };
+  };
+
+  const { isLoggedIn } = useAuth();
+
   return (
     <>
       <div className="app__container nav-outer-container">
         <nav className="app__navbar fixed-container flex-center">
-          <a href="#" className="app__navbar-logo">
+          <Link to="/" className="app__navbar-logo">
             Pehnawa
-          </a>
+          </Link>
 
           <div className="app__navbar-search_container flex-center">
             <input
@@ -27,23 +38,33 @@ const Navbar = () => {
 
           <ul className="app__navbar-links flex-center">
             <li className="app__navbar-link">
-              <a href="#products">Products</a>
+              <NavLink to="/products" style={activeNav}>
+                Products
+              </NavLink>
             </li>
 
             <li className="app__navbar-link">
-              <a href="#wishlist">Wishlist</a>
+              <NavLink to="/wishlist" style={activeNav}>
+                Wishlist
+              </NavLink>
             </li>
 
             <li className="app__navbar-link">
-              <a href="#cart">Cart</a>
+              <NavLink to="/cart" style={activeNav}>
+                Cart
+              </NavLink>
             </li>
 
             <li className="app__navbar-link">
-              <a href="#account">Account</a>
+              <NavLink to="/account" style={activeNav}>
+                Account
+              </NavLink>
             </li>
 
             <li className="app__navbar-link">
-              <a href="#login">Login</a>
+              <NavLink to="/login" style={activeNav}>
+                {isLoggedIn ? "Logout" : "Login"}
+              </NavLink>
             </li>
           </ul>
           <BiGridAlt
@@ -60,33 +81,47 @@ const Navbar = () => {
           />
           <ul className="app__verticalMenu-links flex-center">
             <li className="app__verticalMenu-link">
-              <a href="#products" onClick={handleHamburger}>
+              <NavLink
+                to="/products"
+                onClick={handleHamburger}
+                style={activeNav}>
                 Products
-              </a>
+              </NavLink>
             </li>
 
             <li className="app__verticalMenu-link">
-              <a href="#wishlist" onClick={handleHamburger}>
+              <NavLink
+                to="/wishlist"
+                onClick={handleHamburger}
+                style={activeNav}>
                 Wishlist
-              </a>
+              </NavLink>
             </li>
 
             <li className="app__verticalMenu-link">
-              <a href="#cart" onClick={handleHamburger}>
+              <NavLink to="/cart" onClick={handleHamburger} style={activeNav}>
                 Cart
-              </a>
+              </NavLink>
             </li>
 
             <li className="app__verticalMenu-link">
-              <a href="#account" onClick={handleHamburger}>
+              <NavLink
+                to="/account"
+                onClick={handleHamburger}
+                style={activeNav}>
                 Account
-              </a>
+              </NavLink>
             </li>
 
             <li className="app__verticalMenu-link">
-              <a href="#login" onClick={handleHamburger}>
-                Login
-              </a>
+              <NavLink
+                to="/login"
+                onClick={() => {
+                  setVerticalMenu(false);
+                }}
+                style={activeNav}>
+                {isLoggedIn ? "Logout" : "Login"}
+              </NavLink>
             </li>
           </ul>
         </div>
