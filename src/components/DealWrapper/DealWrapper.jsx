@@ -7,7 +7,7 @@ const DealWrapper = () => {
     <div className="app__container">
       <div className="dealWrapper-outer-container fixed-container ">
         <SectionHeading title="Deal of The Day" />
-        <div class="app__dealWrapper flex-center">
+        <div className="app__dealWrapper flex-center">
           <div className="dealCard">
             <h1 className="dealCard-title">50% OFF*</h1>
             <p className="dealCard-subtitle">Grab the best deal of all times</p>

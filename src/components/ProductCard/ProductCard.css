@@ -27,6 +27,7 @@
 .card_details-wrapper{
     width: 90%;
     margin: 0.5rem auto;
+    position: relative;
 }
 .card_details-wrapper > *{
     margin-bottom: .5rem;
@@ -56,10 +57,8 @@
 }
 
    
-
-
 .product_card .btn_addToCart{
-    width: 75%;
+    width: 90%;
     text-align: center;
     padding: .5rem 1rem;
     background-color: var(--color-dark);
@@ -87,3 +86,15 @@
     color:var(--color-light);
     font-size: 1rem;    
 }
+
+.whistlist_icon-wrapper{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.whistlist_icon {
+    color: var(--color-accent);
+    font-size: 1.1rem;
+}
+

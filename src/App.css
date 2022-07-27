@@ -9,6 +9,7 @@
   --font-aguafina: 'Aguafina Script', cursive;
   --font-montserrat: 'Montserrat', sans-serif;
   --font-poppins: 'Poppins', sans-serif;
+  --toastify-color-progress-light: var(--color-dark) !important; 
 }
 
 body{
