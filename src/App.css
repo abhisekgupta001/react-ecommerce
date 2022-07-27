@@ -5,6 +5,7 @@
   --color-light:#ffffff; 
   --color-dark: #161515;
   --color-grey:#6E6D7A;
+  --color-accent: #EA4C89;
   --font-aguafina: 'Aguafina Script', cursive;
   --font-montserrat: 'Montserrat', sans-serif;
   --font-poppins: 'Poppins', sans-serif;
@@ -31,7 +32,10 @@ align-items: center;
   margin:  0 auto;
 }
 
-
+.grid-center{
+  display: grid;
+  place-items: center;
+}
 
 
 

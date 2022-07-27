@@ -6,7 +6,7 @@ const RequiresAuth = ({children}) => {
     const {isLoggedIn} = useAuth();
     const location = useLocation();
 
-    return isLoggedIn ? children  : <Navigate to="/login" state={{from:location}} replace/>;0
+    return isLoggedIn ? children  : <Navigate to="/login" state={{from:location}} replace/>;
 }
 
 export default RequiresAuth;
