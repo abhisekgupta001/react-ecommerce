@@ -1,0 +1,24 @@
+.app__wishlist-container{
+    flex-direction: column;
+    gap: 2rem;
+    min-height: 90vh;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+}
+
+.app__wishlist-container .wishlist-heading{
+margin-top: 2rem;
+text-transform: uppercase;
+line-height: 2rem;
+font-size: 1.5rem;
+}
+
+.wishlist_card-container{
+    justify-items: center;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    justify-content: start;
+    gap: 2rem 1rem;
+    padding: 0 1rem;
+}
