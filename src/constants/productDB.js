@@ -40,16 +40,16 @@ export const products = [
         discount:"60",
         inStock:true,
     },
-    {
-        id:uuidv4(),
-        imgSrc:"https://i.ibb.co/NssS5St/tshirt2.webp",
-        title:"Roadster",
-        subtitle:"men casual t-shirt",
-        price:"399",
-        MRP:"999",
-        discount:"60",
-        inStock:true,
-    },
+    // {
+    //     id:uuidv4(),
+    //     imgSrc:"https://i.ibb.co/NssS5St/tshirt2.webp",
+    //     title:"Roadster",
+    //     subtitle:"men casual t-shirt",
+    //     price:"399",
+    //     MRP:"999",
+    //     discount:"60",
+    //     inStock:true,
+    // },
     {
         id:uuidv4(),
         imgSrc:"https://i.ibb.co/7nS2BTD/tshirt3.webp",
@@ -79,16 +79,6 @@ export const products = [
         MRP:"1999",
         discount:"60",
         inStock:false,
-    },
-    {
-        id:uuidv4(),
-        imgSrc:"https://i.ibb.co/zGNxZpc/product-image.webp",
-        title:"Roadster",
-        subtitle:"men casual shirt",
-        price:"599",
-        MRP:"1499",
-        discount:"60",
-        inStock:true,
     },
 
 ] 

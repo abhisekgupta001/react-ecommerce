@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ProductCard.css";
 import { BsFillHeartFill, BsHeart } from "react-icons/bs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useCart } from "../../Context/CartContext";
 
 const ProductCard = ({
+  id,
   imgSrc,
   title,
   subtitle,
@@ -14,17 +16,54 @@ const ProductCard = ({
   inStock,
 }) => {
   const [isWhistlisted, setIsWhistlisted] = useState(false);
+  const { productsInsideCart, addToCart, removeFromCart } = useCart();
+  const [isInCart, setIsInCart] = useState(false);
+
+  useEffect(() => {
+    const productIsInCart = productsInsideCart.find(
+      (product) => product.id === id
+    );
+
+    if (productIsInCart) {
+      setIsInCart(true);
+    } else {
+      setIsInCart(false);
+    }
+  }, [productsInsideCart, id]);
+
+  const handleClick = () => {
+    const newProduct = {
+      id,
+      imgSrc,
+      title,
+      subtitle,
+      price,
+      MRP,
+      discount,
+      inStock,
+    };
+
+    if (inStock) {
+      if (isInCart) {
+        removeFromCart(newProduct);
+      } else {
+        addToCart(newProduct);
+      }
+    }
+  };
 
   const toastMe = (toastMsg) => {
-    toast(toastMsg, {
-      position: "bottom-right",
-      autoClose: 500,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-    });
+    if (inStock) {
+      toast(toastMsg, {
+        position: "bottom-right",
+        autoClose: 500,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      });
+    }
   };
 
   const WishlistUpdateFn = () => {
@@ -59,8 +98,15 @@ const ProductCard = ({
         <div className="card_detail-button_wrapper grid-center">
           <button
             className="card_btn btn_addToCart"
-            onClick={() => (inStock ? toastMe("Added to Cart") : "")}>
-            {inStock ? "Add to Cart" : "Out of Stock"}
+            onClick={() => {
+              handleClick();
+              toastMe("Added");
+            }}>
+            {inStock
+              ? isInCart
+                ? "Remove from Cart"
+                : "Add to Cart"
+              : "Out of Stock"}
           </button>
         </div>
         <div className="whistlist_icon-wrapper" onClick={WishlistUpdateFn}>
