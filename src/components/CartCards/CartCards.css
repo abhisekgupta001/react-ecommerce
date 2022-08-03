@@ -1,0 +1,115 @@
+.cart_card{
+    width: 80%;
+    background-color: white;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: .5rem;
+    box-shadow: 4px 6px 10px rgba(184, 184, 184, 0.5);
+}
+
+.cart_card .card_image-wrapper{
+    overflow: hidden;
+    width: 40%;
+    height: 250px;
+}
+
+.cart_card .card_image-wrapper img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.card_detail-wrapper{
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: .75rem;
+    padding-top: .5rem;
+}
+
+.card_detail-wrapper > *{
+margin-bottom: .5rem;
+}
+
+.product_Titles h5{
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.product_Titles p{
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
+.product_Price{
+    font-size: 1rem;
+}
+
+.product_Price .product_MRP{
+    font-size: .7rem;
+    text-decoration: line-through;
+}
+
+.product_Price .product_Discount{
+    color: var(--color-accent);
+    font-size: .8rem;
+}
+
+.product_Quantity-Wrapper{
+    width: 100%;
+}
+
+.product_Quantity-Wrapper label{
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    justify-content: start;
+}
+
+.product_Quantity-Wrapper input{
+    width: 3rem;
+    border: 1px solid var(--color-dark);
+    padding: .25rem;
+    color: var(--color-dark);
+    background-color:transparent;
+    text-align: right;
+    font-size: 1rem;
+}
+
+.product_btns-wrapper{
+    margin-top: 1rem;
+    flex-direction: column;
+    width: 100%;
+    gap: .5rem;
+}
+
+.product_btns-wrapper button{
+    background-color:var(--color-dark);
+    color: var(--color-light);
+    width: 100%;
+    padding: .25rem;
+    border: 1px solid var(--color-dark);
+}
+
+.product_btns-wrapper .moveToWishlist{
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+
+.product_btns-wrapper button:hover{
+    opacity: .7;
+}
+
+
+/* -------Removing arrow from input type number ------ */
+/* Chrome, Safari, Edge, Opera */
+.product_Quantity-Wrapper input::-webkit-outer-spin-button,
+.product_Quantity-Wrapper input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.product_Quantity-Wrapper input{
+  -moz-appearance: textfield;
+}
