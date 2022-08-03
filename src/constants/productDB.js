@@ -1,4 +1,5 @@
 import {v4 as uuidv4} from "uuid";
+const rating=[1,2,3,4,5];
 export const products = [
     {
         id:uuidv4(),
@@ -9,7 +10,9 @@ export const products = [
         MRP:"1499",
         discount:"60",
         inStock:true,
-    },
+        category:"Shirt",
+        rating:rating[Math.floor(Math.random()*rating.length)],
+        },
     {
         id:uuidv4(),
         imgSrc:"https://i.ibb.co/2vQxtqK/shirt-2.webp",
@@ -19,6 +22,8 @@ export const products = [
         MRP:"1599",
         discount:"50",
         inStock:true,
+        category:"Shirt",
+        rating:rating[Math.floor(Math.random()*rating.length)],
     },
     {
         id:uuidv4(),
@@ -29,6 +34,8 @@ export const products = [
         MRP:"1999",
         discount:"50",
         inStock:true,
+        category:"Shirt",
+        rating:rating[Math.floor(Math.random()*rating.length)],
     },
     {
         id:uuidv4(),
@@ -39,17 +46,21 @@ export const products = [
         MRP:"1499",
         discount:"60",
         inStock:true,
+        category:"T-Shirt",
+        rating:rating[Math.floor(Math.random()*rating.length)],
     },
-    // {
-    //     id:uuidv4(),
-    //     imgSrc:"https://i.ibb.co/NssS5St/tshirt2.webp",
-    //     title:"Roadster",
-    //     subtitle:"men casual t-shirt",
-    //     price:"399",
-    //     MRP:"999",
-    //     discount:"60",
-    //     inStock:true,
-    // },
+    {
+        id:uuidv4(),
+        imgSrc:"https://i.ibb.co/NssS5St/tshirt2.webp",
+        title:"Roadster",
+        subtitle:"men casual t-shirt",
+        price:"399",
+        MRP:"999",
+        discount:"60",
+        inStock:true,
+        category:"T-Shirt",
+        rating:rating[Math.floor(Math.random()*rating.length)],
+    },
     {
         id:uuidv4(),
         imgSrc:"https://i.ibb.co/7nS2BTD/tshirt3.webp",
@@ -59,6 +70,8 @@ export const products = [
         MRP:"1599",
         discount:"50",
         inStock:true,
+        category:"T-Shirt",
+        rating:rating[Math.floor(Math.random()*rating.length)],
     },
     {
         id:uuidv4(),
@@ -69,6 +82,8 @@ export const products = [
         MRP:"999",
         discount:"60",
         inStock:false,
+        category:"T-Shirt",
+        rating:rating[Math.floor(Math.random()*rating.length)],
     },
     {
         id:uuidv4(),
@@ -79,6 +94,8 @@ export const products = [
         MRP:"1999",
         discount:"60",
         inStock:false,
+        category:"Shirt",
+        rating:rating[Math.floor(Math.random()*rating.length)],
     },
 
 ] 

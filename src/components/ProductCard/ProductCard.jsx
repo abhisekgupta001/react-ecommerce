@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ProductCard.css";
-import { BsFillHeartFill, BsHeart } from "react-icons/bs";
+import { BsFillHeartFill, BsHeart, BsStarFill } from "react-icons/bs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useCart } from "../../Context/CartContext";
@@ -14,6 +14,8 @@ const ProductCard = ({
   MRP,
   discount,
   inStock,
+  category,
+  rating,
 }) => {
   const [isWhistlisted, setIsWhistlisted] = useState(false);
   const { productsInsideCart, addToCart, removeFromCart } = useCart();
@@ -41,13 +43,17 @@ const ProductCard = ({
       MRP,
       discount,
       inStock,
+      category,
+      rating,
     };
 
     if (inStock) {
       if (isInCart) {
         removeFromCart(newProduct);
+        toastMe("Removed from cart");
       } else {
         addToCart(newProduct);
+        toastMe("Added to cart");
       }
     }
   };
@@ -83,6 +89,12 @@ const ProductCard = ({
         {!inStock && (
           <div className="card_outOfStock grid-center">OUT OF STOCK</div>
         )}
+        <div className="category_wrapper">
+          <span>{category}</span>
+          <span>
+            {rating} <BsStarFill style={{ color: "orange" }} />
+          </span>
+        </div>
       </div>
       <div className="card_details-wrapper">
         <div className="card_detail-name_wrapper">
@@ -97,10 +109,10 @@ const ProductCard = ({
         </div>
         <div className="card_detail-button_wrapper grid-center">
           <button
+            disabled={!inStock}
             className="card_btn btn_addToCart"
             onClick={() => {
               handleClick();
-              toastMe("Added");
             }}>
             {inStock
               ? isInCart

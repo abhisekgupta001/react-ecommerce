@@ -24,6 +24,21 @@
     opacity: .7;
 }
 
+.category_wrapper{
+    position: absolute;
+    background-color: var(--color-dark); 
+    color: var(--color-light);
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:2px 8px;
+    font-size: .8rem;
+    opacity: .5;
+}
+
 .card_details-wrapper{
     width: 90%;
     margin: 0.5rem auto;
@@ -67,6 +82,11 @@
     transition: all .3s ease-in-out;
 }
 
+.product_card .btn_addToCart:disabled{
+    width: 100%;
+    opacity: .7;
+}
+
 .product_card .btn_addToCart:hover{
     opacity: 0.7;
     width: 100%;
@@ -91,10 +111,17 @@
     position: absolute;
     top: 5px;
     right: 5px;
+    display: grid;
+    place-items: center;
 }
 
 .whistlist_icon {
     color: var(--color-accent);
     font-size: 1.1rem;
+    transition: all .3s ease-in;
+}
+
+.whistlist_icon:hover{
+    transform: scale(1.1);
 }
 
