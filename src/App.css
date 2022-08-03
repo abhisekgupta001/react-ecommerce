@@ -24,7 +24,6 @@ align-items: center;
 
 .app__container{
   width: 100%;
-  background-color: var(--color-dark);
 }
 
 .fixed-container{
