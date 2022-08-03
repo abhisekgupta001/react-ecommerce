@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { BiSearchAlt2, BiGridAlt, BiXCircle } from "react-icons/bi";
+import { useCart } from "../../Context/CartContext";
 
 import "./Navbar.css";
 import { useAuth } from "../../Context/AuthContext";
 
 const Navbar = () => {
   const [verticalMenu, setVerticalMenu] = useState(false);
+  const { productsInsideCart } = useCart();
+
   const handleHamburger = () => {
     setVerticalMenu((prev) => !prev);
   };
@@ -51,7 +54,12 @@ const Navbar = () => {
 
             <li className="app__navbar-link">
               <NavLink to="/cart" style={activeNav}>
-                Cart
+                Cart{" "}
+                {productsInsideCart.length > 0 ? (
+                  <span>[{productsInsideCart.length}]</span>
+                ) : (
+                  ""
+                )}
               </NavLink>
             </li>
 

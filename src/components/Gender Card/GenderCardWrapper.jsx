@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 
 const GenderCard = ({ img, title }) => {
   return (
-    <>
+    <div>
       <a href="#">
         <div className="app__genderCard flex-center">
           <img src={img} className="app__genderCard-img" />
           <h2 className="app__genderCard-title">{title}</h2>
         </div>
       </a>
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,52 @@
+.total_card{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    box-shadow: 4px 6px 10px rgba(184, 184, 184, 0.5);
+}
+
+.coupon_field{
+    padding: 0.2rem 0.5rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.btn-apply-coupon{
+    color: var(--color-dark);
+    padding: 0.4rem 1rem;
+    border: none;
+    margin-left: .5rem;
+    transition: all .3s ease-in;
+}
+.btn-apply-coupon:hover{
+    transform: scale(.9);
+}
+.price_detail, .price_wrapper, .total_wrapper{
+    border-bottom: 1px solid var(--color-dark);
+}
+
+.total_wrapper, .price_wrapper span{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3px;
+}
+
+.btn-place-order{
+    padding: .5rem 1rem;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    width: 90%;
+    align-self: center;
+    text-align: center;
+    transition: all .3s ease-in-out;
+}
+
+.btn-place-order:hover{
+    width: 100%;
+}
+
+.coupon_message{
+    font-size: .75rem;
+    margin-top: -1rem;
+}
