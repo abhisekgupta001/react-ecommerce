@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { BiSearchAlt2, BiGridAlt, BiXCircle } from "react-icons/bi";
 import { useCart } from "../../Context/CartContext";
-
+import { useWishlist } from "../../Context/WishlistContext";
 import "./Navbar.css";
 import { useAuth } from "../../Context/AuthContext";
 
 const Navbar = () => {
   const [verticalMenu, setVerticalMenu] = useState(false);
-  const { productsInsideCart } = useCart();
+  const { totalCartItems } = useCart();
+  const { productsInWishlist } = useWishlist();
 
   const handleHamburger = () => {
     setVerticalMenu((prev) => !prev);
@@ -49,14 +50,21 @@ const Navbar = () => {
             <li className="app__navbar-link">
               <NavLink to="/wishlist" style={activeNav}>
                 Wishlist
+                {productsInWishlist.length > 0 ? (
+                  <span style={{ margin: "3px" }}>
+                    [{productsInWishlist.length}]
+                  </span>
+                ) : (
+                  ""
+                )}
               </NavLink>
             </li>
 
             <li className="app__navbar-link">
               <NavLink to="/cart" style={activeNav}>
-                Cart{" "}
-                {productsInsideCart.length > 0 ? (
-                  <span>[{productsInsideCart.length}]</span>
+                Cart
+                {totalCartItems > 0 ? (
+                  <span style={{ margin: "3px" }}>[{totalCartItems}]</span>
                 ) : (
                   ""
                 )}
@@ -103,12 +111,17 @@ const Navbar = () => {
                 onClick={handleHamburger}
                 style={activeNav}>
                 Wishlist
+                {productsInWishlist.length > 0 ? (
+                  <span>[{productsInWishlist.length}]</span>
+                ) : (
+                  ""
+                )}
               </NavLink>
             </li>
 
             <li className="app__verticalMenu-link">
               <NavLink to="/cart" onClick={handleHamburger} style={activeNav}>
-                Cart
+                Cart {totalCartItems > 0 ? <span>[{totalCartItems}]</span> : ""}
               </NavLink>
             </li>
 

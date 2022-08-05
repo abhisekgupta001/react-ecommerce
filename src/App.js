@@ -1,5 +1,5 @@
 import './App.css';
-import {Routes, Route} from "react-router-dom"
+import {Routes, Route} from "react-router-dom";
 import Home from './pages/Home';
 import Product from './pages/Product';
 import Wishlist from './pages/Wishlist';
@@ -8,6 +8,10 @@ import Account from './pages/Account';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import RequiresAuth from './RequiresAuth';
+import { ToastContainer} from "react-toastify";
+
+
+
 
 function App(){
 
@@ -23,6 +27,7 @@ function App(){
         <Route path='/cart' element={<RequiresAuth><Cart/></RequiresAuth>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>                                                                                                                                                             																			                             
+    <ToastContainer/>
     </div>
   );
 }

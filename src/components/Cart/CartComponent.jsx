@@ -9,17 +9,17 @@ import TotalCard from "../TotalCard/TotalCard";
 import "./CartComponent.css";
 
 const CartComponent = () => {
-  const { productsInsideCart } = useCart();
+  const { productsInsideCart, totalCartItems } = useCart();
 
   return (
     <div className="app_cart-conatiner app_container">
       <div className="app_outer-conatiner fixed-container flex-center">
-        <h2>My Shopping Cart({productsInsideCart.length})</h2>
+        <h2>My Shopping Cart({totalCartItems})</h2>
         {productsInsideCart.length > 0 ? (
           <div className="cart_wrapper flex-center">
             <div className="cart_cards-wrapper">
-              {productsInsideCart.map((props) => (
-                <CartCards props={props} />
+              {productsInsideCart.map((product) => (
+                <CartCards product={product} key={product.id} />
               ))}
             </div>
             <TotalCard />

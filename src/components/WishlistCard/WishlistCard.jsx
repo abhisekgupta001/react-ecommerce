@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import "./ProductCard.css";
-import { BsFillHeartFill, BsHeart, BsStarFill } from "react-icons/bs";
-import "react-toastify/dist/ReactToastify.css";
-import { useCart } from "../../Context/CartContext";
+import React, { useEffect, useState } from "react";
+import { BsFillHeartFill, BsStarFill } from "react-icons/bs";
+import { ToastContainer } from "react-toastify";
 import { useWishlist } from "../../Context/WishlistContext";
+import { useCart } from "../../Context/CartContext";
 import { useToast } from "../../Context/ToastContext";
+import { useNavigate } from "react-router-dom";
 
-const ProductCard = ({ product }) => {
+const WishlistCard = ({ product }) => {
   const {
     id,
     imgSrc,
@@ -19,13 +19,11 @@ const ProductCard = ({ product }) => {
     category,
     rating,
   } = product;
-
-  const { productsInsideCart, addToCart, removeFromCart } = useCart();
-  const [isInCart, setIsInCart] = useState(false);
-  const { productsInWishlist, addToWishlist, removeFromWishlist } =
-    useWishlist();
-  const [isWhistlisted, setIsWhistlisted] = useState(false);
+  const { removeFromWishlist } = useWishlist();
+  const { removeFromCart, addToCart, productsInsideCart } = useCart();
   const { toastFn } = useToast();
+  const [isInCart, setIsInCart] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const productIsInCart = productsInsideCart.find(
@@ -37,37 +35,16 @@ const ProductCard = ({ product }) => {
     } else {
       setIsInCart(false);
     }
+  }, [productsInsideCart, id]);
 
-    const productIsInWishlist = productsInWishlist.find(
-      (currentProduct) => currentProduct.id === id
-    );
-
-    if (productIsInWishlist) {
-      setIsWhistlisted(true);
-    } else {
-      setIsWhistlisted(false);
-    }
-  }, [productsInsideCart, productsInWishlist, id]);
-
-  const handleClick = () => {
+  const handleBtnClick = () => {
     if (inStock) {
       if (isInCart) {
-        removeFromCart(product);
-        toastFn("Removed from cart");
+        navigate("/cart");
       } else {
         addToCart(product);
         toastFn("Added to cart");
       }
-    }
-  };
-
-  const WishlistUpdateFn = () => {
-    if (isWhistlisted) {
-      removeFromWishlist(product);
-      toastFn("Removed from Wishlist");
-    } else {
-      addToWishlist(product);
-      toastFn("Added to wishlist");
     }
   };
 
@@ -100,26 +77,26 @@ const ProductCard = ({ product }) => {
           <button
             disabled={!inStock}
             className="card_btn btn_addToCart"
-            onClick={() => {
-              handleClick();
-            }}>
+            onClick={handleBtnClick}>
             {inStock
               ? isInCart
-                ? "Remove from Cart"
-                : "Add to Cart"
+                ? "Go to Cart"
+                : "Move to Cart"
               : "Out of Stock"}
           </button>
         </div>
-        <div className="whistlist_icon-wrapper" onClick={WishlistUpdateFn}>
-          {isWhistlisted ? (
-            <BsFillHeartFill className="whistlist_icon" />
-          ) : (
-            <BsHeart className="whistlist_icon" />
-          )}
+        <div
+          className="whistlist_icon-wrapper"
+          onClick={() => {
+            removeFromWishlist(product);
+            toastFn("Removed from Wishlist");
+          }}>
+          <BsFillHeartFill className="whistlist_icon" />
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
 
-export default ProductCard;
+export default WishlistCard;
