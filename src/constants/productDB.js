@@ -12,6 +12,7 @@ export const products = [
         inStock:true,
         category:"Shirt",
         rating:rating[Math.floor(Math.random()*rating.length)],
+        quantity:1,
         },
     {
         id:uuidv4(),
@@ -24,6 +25,7 @@ export const products = [
         inStock:true,
         category:"Shirt",
         rating:rating[Math.floor(Math.random()*rating.length)],
+        quantity:1,
     },
     {
         id:uuidv4(),
@@ -36,6 +38,7 @@ export const products = [
         inStock:true,
         category:"Shirt",
         rating:rating[Math.floor(Math.random()*rating.length)],
+        quantity:1,
     },
     {
         id:uuidv4(),
@@ -48,6 +51,7 @@ export const products = [
         inStock:true,
         category:"T-Shirt",
         rating:rating[Math.floor(Math.random()*rating.length)],
+        quantity:1,
     },
     {
         id:uuidv4(),
@@ -60,6 +64,7 @@ export const products = [
         inStock:true,
         category:"T-Shirt",
         rating:rating[Math.floor(Math.random()*rating.length)],
+        quantity:1,
     },
     {
         id:uuidv4(),
@@ -72,6 +77,7 @@ export const products = [
         inStock:true,
         category:"T-Shirt",
         rating:rating[Math.floor(Math.random()*rating.length)],
+        quantity:1,
     },
     {
         id:uuidv4(),
@@ -84,6 +90,7 @@ export const products = [
         inStock:false,
         category:"T-Shirt",
         rating:rating[Math.floor(Math.random()*rating.length)],
+        quantity:1,
     },
     {
         id:uuidv4(),
@@ -96,6 +103,7 @@ export const products = [
         inStock:false,
         category:"Shirt",
         rating:rating[Math.floor(Math.random()*rating.length)],
+        quantity:1,
     },
 
 ] 

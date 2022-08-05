@@ -11,8 +11,8 @@ const ProductPanel = () => {
         <span className="product_count">(20 products)</span>
       </div>
       <div className="product_grid">
-        {products.map((props) => (
-          <ProductCard {...props} key={props.id} />
+        {products.map((product) => (
+          <ProductCard product={product} key={product.id} />
         ))}
       </div>
     </main>

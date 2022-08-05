@@ -3,10 +3,11 @@ import "./TotalCard.css";
 import { useCart } from "../../Context/CartContext";
 
 const TotalCard = () => {
-  const { totalCartValue, productsInsideCart } = useCart();
+  const { totalCartValue, totalCartItems } = useCart();
   const [coupon, setCoupon] = useState("");
   const [discount, setDiscount] = useState(0);
   const [couponApplied, setCouponApplied] = useState(false);
+
   const applyCouponFn = () => {
     if (coupon === "free50") {
       setCouponApplied(true);
@@ -43,7 +44,7 @@ const TotalCard = () => {
       </div>
       <div className="price_wrapper">
         <span>
-          <p>Price ({productsInsideCart.length} items) </p>
+          <p>Price ({totalCartItems} items) </p>
           <p>Rs. {totalCartValue}</p>
         </span>
         <span>
@@ -52,14 +53,14 @@ const TotalCard = () => {
         </span>
         <span>
           <p>Delivery Charges</p>
-          <p>Rs. 499</p>
+          <p>Rs. 99</p>
         </span>
       </div>
       <div className="total_wrapper">
         <h4>Total Amount</h4>
-        <h4>Rs. {totalCartValue + 499 - discount}</h4>
+        <h4>Rs. {totalCartValue + 99 - discount}</h4>
       </div>
-      <p>You will save Rs 500 on this order</p>
+      <p>You will save Rs {discount} on this order</p>
       <button className="btn-place-order">Place Order</button>
     </div>
   );

@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer, useState } from "react";
 import {cartInitialState, cartReducerFn} from "../hooks/cartReducer";
 
 const cartContext=createContext(cartInitialState);
@@ -11,7 +11,6 @@ const CartProvider = ({children}) =>{
 
     const addToCart=(product)=>{
         const updatedCart = state.productsInsideCart.concat(product);
-        updateTotal(updatedCart);
         dispatch({
             type: "ADD_TO_CART",
             payload:{
@@ -23,7 +22,6 @@ const CartProvider = ({children}) =>{
 
     const removeFromCart = (product) =>{
         const updatedCart = state.productsInsideCart.filter((currentProduct) => currentProduct.id !== product.id)
-        updateTotal(updatedCart);
         dispatch({
             type:"REMOVE_FROM_CART",
             payload:{
@@ -32,25 +30,43 @@ const CartProvider = ({children}) =>{
         })
     }
 
+    const incrementQuantity = ({id}) =>{
 
-    const updateTotal = (productsInsideCart) =>{
-        let total = 0;
-        productsInsideCart.forEach((product) => total += Number(product.price))
-        dispatch({
-            type:"UPDATE_TOTAL",
+        dispatch ({
+            type:"INCREMENT_QUANTITY",
             payload:{
-                totalCartValue: total,
+                id,
             }
         })
     }
 
 
+    const decrementQuantity = ({id}) =>{
+
+        dispatch ({
+            type:"DECREMENT_QUANTITY",
+            payload:{
+                id,
+            }
+        })
+    }
+ 
+    useEffect(()=>{
+        dispatch({
+            type:"UPDATE_ITEMS_IN_CART",
+        })
+    },[state.productsInsideCart]);
+
+   
+
     const value = {
         totalCartValue:state.totalCartValue,
+        totalCartItems:state.totalCartItems,
         productsInsideCart: state.productsInsideCart,
         addToCart,
         removeFromCart,
-        updateTotal
+        incrementQuantity,
+        decrementQuantity
     }
 
     return(
