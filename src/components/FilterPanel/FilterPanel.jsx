@@ -1,12 +1,15 @@
 import React from "react";
 import "./FilterPanel.css";
-import { categoriesData, ratingData, sortingData } from "../../constants/data";
+import { categoriesData, ratingData } from "../../constants/data";
+import { useFilter } from "../../Context/FilterContext";
 
 const FilterHeading = ({ heading }) => (
   <h3 className="filter_heading">{heading}</h3>
 );
 
 const FilterPanel = () => {
+  const { filterDispatch, filterState } = useFilter();
+  const { sortBy, ratingBy } = filterState;
   return (
     <aside className="filterPanel">
       <div className="filter_title-wrapper filter_wrapper">
@@ -61,6 +64,10 @@ const FilterPanel = () => {
               type="radio"
               className="filterbar-radio"
               name="filter-star-radio"
+              checked={ratingBy === rating.title[0]}
+              onChange={() =>
+                filterDispatch({ type: "RATING", payload: rating.title[0] })
+              }
             />{" "}
             {rating.title}
           </label>
@@ -68,17 +75,32 @@ const FilterPanel = () => {
       </div>
 
       <div className="filter_sort-wrapper filter_wrapper">
-        <FilterHeading heading={"Sort by"} style={{ color: "red" }} />
-        {sortingData.map((sort) => (
-          <label key={sort.id}>
-            <input
-              type="radio"
-              className="filterbar-radio"
-              name="filter-sort-radio"
-            />{" "}
-            {sort.type} - {sort.value}
-          </label>
-        ))}
+        <FilterHeading heading={"Sort by"} />
+        <label>
+          <input
+            type="radio"
+            className="filterbar-radio"
+            name="filter-sort-radio"
+            checked={sortBy === "LOW_TO_HIGH"}
+            onChange={() =>
+              filterDispatch({ type: "SORT_BY_PRICE", payload: "LOW_TO_HIGH" })
+            }
+          />{" "}
+          Price - Low to High
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            className="filterbar-radio"
+            name="filter-sort-radio"
+            checked={sortBy === "HIGH_TO_LOW"}
+            onChange={() =>
+              filterDispatch({ type: "SORT_BY_PRICE", payload: "HIGH_TO_LOW" })
+            }
+          />{" "}
+          Price - High to Low
+        </label>
       </div>
     </aside>
   );

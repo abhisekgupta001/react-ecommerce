@@ -45,22 +45,9 @@ const ratingData = [
         id:uuidv4(),
         title:"1 star & above"
     },
-]
-
-const sortingData = [
-    {
-        id:uuidv4(),
-        type:"Price",
-        value:"Low to High",
-    },
-    {
-        id:uuidv4(),
-        type:"Price",
-        value:"High to Low",
-    }
 
 ]
 
 
-export {categoriesData, ratingData, sortingData}
+export {categoriesData, ratingData}
 

@@ -1,5 +1,6 @@
 .productPanel{
     padding: 2rem 1rem;
+    border-left: 1px solid var(--color-dark);
 }
 
 .product_heading-wrapper{
@@ -18,3 +19,9 @@
     gap: 2rem 1rem;
 }
 
+@media screen and (max-width:800px)
+{
+    .productPanel{
+        border: none;
+    }
+}
